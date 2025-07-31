@@ -1,16 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-    
 .eCard{
-    height: 7.5rem;
-    width: 18rem;
+    height: 6.5rem;
+    width: 20rem;
     border: 0.01rem solid transparent;
     border-radius: 1rem;
     padding: 0.5rem 0.5rem;
-    box-sizing: border-box;
+    box-sizing:content-box;
     background-color: ghostwhite;
-    box-shadow: 0.1rem 0.1rem #d2d2da;
+    box-shadow: 0.15rem 0.15rem #d2d2da;
     margin: 1rem 1rem 1rem 1rem;
-    font-family: "Poppins", sans-serif;
     text-align: center;
 }
 
@@ -21,7 +18,7 @@
 }
 
 .cardBody{
-    height: fit-content;
+    height: inherit;
     width:auto;
     display: flex;
     flex-direction: row;
@@ -33,33 +30,59 @@
 .cardText{
     display:flex;
     flex-direction: column;
+    box-sizing: border-box;
+    margin: 0;
 }
 
 .cardTextPara{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    margin-bottom: 0.02rem;
 }
 
 .cardText .boldText{
-    font-size: large;
+    font-size:1rem;
     font-weight: 600;
-    margin-bottom: 0.1rem;
+    margin: 0;
+    padding: 0;
+}
+.cardText p{
+    margin: 0;
+    padding: 0;
 }
 
 .cardBtn{
-    color: #fff;
-    width: 4.5rem;
-    background-color: #7562E0;
-    padding: 0.1rem 0.1rem;
-    border: 0.2rem solid #7562E0;
-    border-radius: 2rem;
+    color:#7562E0;
+    padding: 0.18rem 0.8rem !important;
+    background-color:#fff;
+    border: 0.12rem solid #7562E0;
+    font-weight: 300;
+    border-radius: 0.3rem;
     display: block;
     margin: auto;
 }
 
-.cardBtn:hover{
+.cardBtn:hover, .cardBtn:active{
     background-color: #6252bb;
     border-color: #6252bb;
+    color: #fff;
+}
+
+@media all  and (max-width: 600px) {
+    .eCard{
+        width: 14rem;
+        height: 14rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .cardBody{
+    height: fit-content;
+    width:auto;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+}
 }

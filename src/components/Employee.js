@@ -1,4 +1,3 @@
-import EditEmployee from './EditEmployee';
 import './Employee.css';
 
 function Employee(props){
@@ -13,7 +12,7 @@ function Employee(props){
                     <p className='boldText'>{props.name}</p>
                     <p>{props.role}</p>
                 </div>
-            <EditEmployee id={props.id} name={props.name} role={props.role} updateEmp={props.updateEmps}/>
+            {props.updateEmps}
             </div>
             </div>  
         </div>

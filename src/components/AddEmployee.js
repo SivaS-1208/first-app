@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 
-function EditEmployee(props){
-    const [fullName,setFullName] = useState(props.name);
-    const [role,setRole] = useState(props.role);
+function AddEmployee(props){
+    const [fullName,setFullName] = useState('');
+    const [role,setRole] = useState('');
+    const [img,setImg] = useState('');
 
     const [show, setShow] = useState(false);
 
@@ -13,11 +14,14 @@ function EditEmployee(props){
     const handleSubmit = (event) => {
       handleClose();
       event.preventDefault();
-      props.updateEmp(props.id, fullName, role);
+      props.newEmp(fullName, role, img);
+      setFullName('');
+      setRole('');
+      setImg('');
     }
   return (
     <>
-      <button className="cardBtn" onClick={handleShow}>Edit</button>
+      <button className="btn btn-outline-primary d-block mx-auto" onClick={handleShow}>+ Add Employee</button>
     
       <Modal
         show={show}
@@ -48,15 +52,24 @@ function EditEmployee(props){
             defaultValue={role} onChange={(e) => setRole(e.target.value)}/>
           </div>
           </div>
+          <div className="row">
+          <div className="col-sm-2">
+            <label className="form-label">Image (Link)</label> 
+          </div>
+          <div className="col-sm-10">
+            <input type="text" className="form-control" placeholder="eg. https://example.com/image.jpg"
+            defaultValue={img} onChange={(e) => setImg(e.target.value)}/>
+          </div>
+          </div>
       </form>
 
         </Modal.Body>
         <Modal.Footer>
-          <button type='submit' form='EditForm' className='btn btn-primary'>Update</button>
+          <button type='submit' form='EditForm' className='btn btn-primary'>Add</button>
         </Modal.Footer>
       </Modal>
     </>
   );
 }
 
-export default EditEmployee;
+export default AddEmployee;
